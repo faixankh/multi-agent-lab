@@ -1,0 +1,4 @@
+run_id,latency_ms,estimated_cost_usd,tool_calls,retrieval_hits
+run_001,811,0.017,2,3
+run_002,842,0.018,2,4
+run_003,899,0.021,3,5

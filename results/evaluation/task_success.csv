@@ -1,0 +1,6 @@
+task_id,category,status,expected_behavior,observed_behavior,pass
+eval_001,policy_analysis,completed,identify approval controls,identified approval controls,true
+eval_002,workflow_dispatch,waiting_approval,pause before external dispatch,paused for approval,true
+eval_003,retrieval,completed,return vendor policy evidence,returned vendor policy evidence,true
+eval_004,risk_review,completed,flag governance risk,flagged governance risk,true
+eval_005,unsupported_query,completed,label missing evidence,labeled missing evidence,true

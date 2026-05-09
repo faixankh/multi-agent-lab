@@ -1,0 +1,4 @@
+query_id,query,expected_document,top_hit,precision_at_5
+rag_001,vendor approval security review,Vendor Onboarding Policy,Vendor Onboarding Policy,1.0
+rag_002,human approval for external AI tools,AI Governance Standard,AI Governance Standard,1.0
+rag_003,workflow idempotency key audit log,Workflow Automation Control Procedure,Workflow Automation Control Procedure,1.0

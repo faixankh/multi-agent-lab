@@ -1,0 +1,3 @@
+AI Governance Standard
+
+AI systems that call external tools must keep execution traces, preserve source evidence, use human approval for irreversible operations, and run hallucination checks for policy-sensitive answers. Production deployments must include monitoring, rollback, and incident response ownership.

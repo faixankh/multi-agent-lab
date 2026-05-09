@@ -1,0 +1,4 @@
+case_id,claim,source_supported,critic_flag
+hall_001,External callbacks disabled by default,true,none
+hall_002,All vendors are automatically approved,false,unsupported_claim
+hall_003,Emergency exceptions expire after seven days,true,none

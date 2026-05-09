@@ -1,0 +1,5 @@
+task_id,category,expected,actual,pass
+eval_001,policy_analysis,approval controls identified,approval controls identified,true
+eval_002,workflow_design,idempotency key required,idempotency key required,true
+eval_003,retrieval,AI Governance Standard,AI Governance Standard,true
+eval_004,risk_review,human approval,human approval,true

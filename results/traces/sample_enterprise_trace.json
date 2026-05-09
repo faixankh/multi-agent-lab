@@ -1,0 +1,54 @@
+{
+  "task": {
+    "id": "task_7b91aaf0132c42",
+    "workspace_id": "enterprise-demo",
+    "request": "Analyze the vendor onboarding policy, identify missing approval controls, draft a remediation checklist, and prepare a structured implementation plan.",
+    "approval_required": true
+  },
+  "status": "waiting_approval",
+  "events": [
+    {
+      "type": "memory",
+      "title": "Relevant memory loaded",
+      "payload": {
+        "count": 1
+      }
+    },
+    {
+      "type": "plan",
+      "title": "Execution plan created",
+      "payload": {
+        "steps": 6
+      }
+    },
+    {
+      "type": "step",
+      "title": "Retrieve governing knowledge",
+      "payload": {
+        "tool": "document_search",
+        "hits": 3
+      }
+    },
+    {
+      "type": "step",
+      "title": "Design workflow sequence",
+      "payload": {
+        "tool": "workflow_dispatch",
+        "status": "prepared"
+      }
+    },
+    {
+      "type": "critique",
+      "title": "Critic review completed",
+      "payload": {
+        "risk_level": "medium"
+      }
+    }
+  ],
+  "final_result": {
+    "executive_summary": "The request was decomposed into a governed multi-agent workflow with retrieval, execution, review, and trace capture.",
+    "approval": {
+      "status": "pending"
+    }
+  }
+}

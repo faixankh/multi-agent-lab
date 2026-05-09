@@ -1,0 +1,7 @@
+category,runs,passed,failed,success_rate,median_latency_ms,estimated_cost_usd
+policy_analysis,24,22,2,0.917,781,0.015
+workflow_design,20,17,3,0.85,918,0.021
+vendor_review,16,14,2,0.875,864,0.018
+rag_answering,28,25,3,0.893,701,0.012
+tool_execution,18,16,2,0.889,1024,0.026
+approval_governance,14,13,1,0.929,836,0.017

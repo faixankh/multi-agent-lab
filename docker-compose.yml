@@ -1,0 +1,31 @@
+services:
+  agentos-api:
+    build:
+      context: .
+      dockerfile: deployment/docker/backend.Dockerfile
+    container_name: agentos-api
+    env_file:
+      - .env.example
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storage:/app/storage
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  agentos-dashboard:
+    build:
+      context: .
+      dockerfile: deployment/docker/frontend.Dockerfile
+    container_name: agentos-dashboard
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      agentos-api:
+        condition: service_healthy

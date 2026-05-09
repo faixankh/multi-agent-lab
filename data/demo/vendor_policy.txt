@@ -1,0 +1,3 @@
+Vendor Onboarding Policy
+
+Every vendor handling confidential data must pass security review before production access. Purchases above 5000 USD require department approval and finance approval. High-risk integrations require legal review, data processing agreement verification, and a named business owner. Emergency exceptions expire after seven days and must be reviewed by the risk committee.

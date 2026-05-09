@@ -1,0 +1,35 @@
+{
+  "project": "AgentOS Enterprise Platform",
+  "version": "2.1.0",
+  "profile": "production-oriented portfolio release with reproducible evidence package",
+  "modules": [
+    "multi-agent orchestrator",
+    "planner agent",
+    "executor agent",
+    "critic agent",
+    "memory manager",
+    "RAG retriever",
+    "tool router",
+    "approval workflow",
+    "evaluation engine",
+    "trace inspector",
+    "Next.js dashboard",
+    "FastAPI backend",
+    "Docker deployment",
+    "CI workflow",
+    "n8n workflow integration",
+    "evidence gallery page",
+    "benchmark charts",
+    "architecture infographics",
+    "results reports",
+    "reproducibility checklist"
+  ],
+  "generated_at": "2026-05-09T00:00:00+05:00",
+  "evidence_assets": {
+    "screenshots": 11,
+    "charts": 9,
+    "infographics": 4,
+    "reports": 3,
+    "frontend_public_assets": 24
+  }
+}

@@ -1,0 +1,5 @@
+case_id,expected_tool,selected_tool,valid_arguments,pass
+tool_001,document_search,document_search,true,true
+tool_002,workflow_dispatch,workflow_dispatch,true,true
+tool_003,calculator,calculator,true,true
+tool_004,document_search,document_search,true,true

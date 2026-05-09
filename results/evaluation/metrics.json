@@ -1,0 +1,9 @@
+{
+  "task_success_rate": 0.875,
+  "tool_call_accuracy": 0.932,
+  "retrieval_precision_at_5": 0.9,
+  "hallucination_flag_rate": 0.143,
+  "median_latency_ms": 842,
+  "estimated_cost_per_task_usd": 0.018,
+  "evaluation_scope": "deterministic local benchmark with reproducible fixtures"
+}

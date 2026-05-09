@@ -1,0 +1,6 @@
+configuration,task_success_rate
+Full system,0.875
+No critic,0.781
+No memory,0.746
+No RAG,0.694
+No approval gate,0.724

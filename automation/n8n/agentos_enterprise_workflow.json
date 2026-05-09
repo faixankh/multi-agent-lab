@@ -1,0 +1,137 @@
+{
+  "name": "AgentOS Enterprise Execution Control",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "agentos-execution",
+        "responseMode": "responseNode"
+      },
+      "id": "WebhookAgentOS",
+      "name": "Webhook | AgentOS Execution",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body || $json;\nreturn [{ json: {\n  task_id: body.delivery?.idempotency_key || body.task_id,\n  workflow_name: body.workflow_name,\n  request: body.request,\n  states: body.states || [],\n  received_at: new Date().toISOString(),\n  status: 'validated'\n}}];"
+      },
+      "id": "NormalizePayload",
+      "name": "Code | Normalize Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true
+          },
+          "conditions": [
+            {
+              "leftValue": "={{$json.task_id}}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "ValidateIdempotency",
+      "name": "IF | Has Idempotency Key",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        520,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: true, status: 'accepted', task_id: $json.task_id, states: $json.states } }}"
+      },
+      "id": "RespondAccepted",
+      "name": "Respond | Accepted",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        780,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: false, status: 'rejected', reason: 'missing idempotency key' } }}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "RespondRejected",
+      "name": "Respond | Rejected",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        780,
+        120
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook | AgentOS Execution": {
+      "main": [
+        [
+          {
+            "node": "Code | Normalize Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code | Normalize Payload": {
+      "main": [
+        [
+          {
+            "node": "IF | Has Idempotency Key",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF | Has Idempotency Key": {
+      "main": [
+        [
+          {
+            "node": "Respond | Accepted",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond | Rejected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
